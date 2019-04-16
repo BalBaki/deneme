@@ -7,22 +7,22 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class FormService {
 
   constructor(private http: HttpClient) { }
-  path = "http://localhost:3000/users";
+  path = "http://localhost:3000/forms";
 
 
-  getUsers():Observable<Form[]>{
+  getForms():Observable<Form[]>{
     return this.http.get<Form[]>(this.path);
   }
 
-  getUser(formName):Observable<Form[]>{
+  getForm(formName):Observable<Form[]>{
 
     return this.http.get<Form[]>(this.path+"?formName="+formName);
   }
 
-  addUser(form:Form):Observable<Form>{
+  addForm(form:Form):Observable<Form>{
     const httpOptions= {
       headers:new HttpHeaders({
         'Content-Type':'application/json',

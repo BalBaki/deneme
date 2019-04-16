@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Form } from './form';
-import { UserService } from '../services/user.service';
+import { FormService } from '../services/form.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common'
 
@@ -17,7 +17,7 @@ export class FormComponent implements OnInit {
   
   constructor(
     private formBuilder:FormBuilder,
-    private userService:UserService,
+    private userService:FormService,
     public datepipe: DatePipe,
     ) {
   
@@ -47,7 +47,7 @@ export class FormComponent implements OnInit {
   
 
     this.createFormAddForm();
-    this.userService.getUsers().subscribe(data=>{
+    this.userService.getForms().subscribe(data=>{
       this.forms = data;
     });
   }
@@ -64,7 +64,7 @@ export class FormComponent implements OnInit {
       this.form = Object.assign({},this.formAddForm.value);
     }
 
-    this.userService.addUser(this.form).subscribe(data=>{
+    this.userService.addForm(this.form).subscribe(data=>{
 
       this.ngOnInit();
     });
