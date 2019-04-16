@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http'
 import { UserService } from '../services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common'
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class FormComponent implements OnInit {
   constructor(
     private formBuilder:FormBuilder,
     private userService:UserService,
-    public datepipe: DatePipe) {
+    public datepipe: DatePipe,
+    ) {
   
    }
   filterText = "";  
@@ -48,7 +50,7 @@ export class FormComponent implements OnInit {
     this.createFormAddForm();
     this.userService.getUsers().subscribe(data=>{
       this.users = data;
-    })
+    });
   }
 
   resetForm(){

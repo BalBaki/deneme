@@ -17,6 +17,11 @@ export class UserService {
     return this.http.get<User[]>(this.path);
   }
 
+  getUser(formName):Observable<User[]>{
+
+    return this.http.get<User[]>(this.path+"?formName="+formName  );
+  }
+
   addUser(user:User):Observable<User>{
     const httpOptions= {
       headers:new HttpHeaders({

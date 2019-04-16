@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { FilterFormPipe } from './form/filter-form.pipe';
+import { FormDetailComponent } from './form-detail/form-detail.component';
 
 
 
@@ -16,6 +17,7 @@ import { FilterFormPipe } from './form/filter-form.pipe';
     AppComponent,
     FormComponent,
     FilterFormPipe,
+    FormDetailComponent,
     
   ],
   imports: [

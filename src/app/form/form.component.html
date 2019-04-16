@@ -22,7 +22,7 @@
   <tbody>
     <tr *ngFor="let user of users| filterForm:filterText ">
       <th scope="row">{{user.id}}</th>
-      <td>{{user.formName}}</td>
+       <td> <a routerLink="{{user.formName}}">{{user.formName}}</a></td>
       <td>{{user.description}}</td>
       <td>{{user.createdDate}}</td>
       <td>{{user.fields.name}}</td>
@@ -51,7 +51,7 @@
                 <form [formGroup]="formAddForm" (ngSubmit)="add()">
                     <div class="form-group">
                         <label>Formİsmi</label>
-                        <input type="text" class="form-control" formControlName="formName" placeholder="Form isminizi giriniz.">
+                        <input type="text" class="form-control" formControlName="formName" placeholder="Form isminizi giriniz." >
                         <div class="alert alert-danger"
                             *ngIf="formAddForm.get('formName').hasError('required') && formAddForm.get('formName').pristine">Formisim
                             Alanı Boş Geçilemez</div>
