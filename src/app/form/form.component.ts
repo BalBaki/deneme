@@ -62,7 +62,9 @@ export class FormComponent implements OnInit {
     if(this.formAddForm.valid){
       this.form = Object.assign({},this.formAddForm.value);
     }
+    
     this.formService.addForm(this.form).subscribe(data=>{
+
       this.alertifyService.success(this.form.formName+" adlı form basariyla eklendi.");
       this.ngOnInit();
     });
