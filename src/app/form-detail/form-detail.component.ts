@@ -11,13 +11,13 @@ import { ActivatedRoute } from '@angular/router';
 export class FormDetailComponent implements OnInit {
 
   constructor(
-    private userService:FormService,
+    private formService:FormService,
     private activatedRoute:ActivatedRoute
   ) { }
   forms: Form[];
   ngOnInit() {
     this.activatedRoute.params.subscribe(params=>{
-      this.userService.getForm(params["formName"]).subscribe(data=>{
+      this.formService.getForm(params["formName"]).subscribe(data=>{
         this.forms = data;
       });
     })

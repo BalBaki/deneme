@@ -3,6 +3,7 @@ import { Form } from './form';
 import { FormService } from '../services/form.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common'
+import { AlertifyService } from '../services/alertify.service';
 
 
 
@@ -17,8 +18,9 @@ export class FormComponent implements OnInit {
   
   constructor(
     private formBuilder:FormBuilder,
-    private userService:FormService,
+    private formService:FormService,
     public datepipe: DatePipe,
+    private alertifyService:AlertifyService
     ) {
   
    }
@@ -47,7 +49,7 @@ export class FormComponent implements OnInit {
   
 
     this.createFormAddForm();
-    this.userService.getForms().subscribe(data=>{
+    this.formService.getForms().subscribe(data=>{
       this.forms = data;
     });
   }
@@ -58,14 +60,10 @@ export class FormComponent implements OnInit {
 
   add(){
     if(this.formAddForm.valid){
-      
-     
-   
       this.form = Object.assign({},this.formAddForm.value);
     }
-
-    this.userService.addForm(this.form).subscribe(data=>{
-
+    this.formService.addForm(this.form).subscribe(data=>{
+      this.alertifyService.success(this.form.formName+" adlı form basariyla eklendi.");
       this.ngOnInit();
     });
   }

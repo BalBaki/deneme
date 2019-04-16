@@ -75,14 +75,14 @@
                       </div>
                       <div class="form-group">
                           <label>Soyisim</label>
-                        <input type="text" class="form-control" formControlName="surName" placeholder="isim gir.">
+                        <input type="text" class="form-control" formControlName="surName" placeholder="Soyisim gir.">
                         <div class="alert alert-danger"
-                        *ngIf="formAddForm.get('description').hasError('required') && formAddForm.get('description').pristine" >İsim
+                        *ngIf="formAddForm.get('description').hasError('required') && formAddForm.get('description').pristine" >Soyisim
                         Alanı Boş Geçilemez!</div>
                       </div>
                       <div class="form-group">
                         <label>Yaş</label>
-                        <input type="number" class="form-control" formControlName="age" placeholder="Yasinizi Giriniz.">
+                        <input type="number" class="form-control" formControlName="age" placeholder="Yasinizi Giriniz." min="0" max="120">
                         
                     </div> 
                     </div>
@@ -93,7 +93,6 @@
                     </div>
                 </form>
             </div>
-            
         </div>
     </div>
 
