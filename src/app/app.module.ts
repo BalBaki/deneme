@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
-import { MenuComponent } from './menu/menu.component';
 import { FilterFormPipe } from './form/filter-form.pipe';
 
 
@@ -16,7 +15,6 @@ import { FilterFormPipe } from './form/filter-form.pipe';
   declarations: [
     AppComponent,
     FormComponent,
-    MenuComponent,
     FilterFormPipe,
     
   ],
