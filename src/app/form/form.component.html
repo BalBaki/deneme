@@ -1,4 +1,10 @@
-<input class="form-control pt-4 pb-4" type="search" placeholder="Aramak istediginiz form ismini giriniz."
+<div class="row">
+  <div class="col-md-2">
+    <a class="list-group-item" data-toggle="modal" data-target="#addFormModal">Form Ekle</a>
+  </div>
+
+  <div class="col-md-10">
+    <input class="form-control pt-4 pb-4" type="search" placeholder="Aramak istediginiz form ismini giriniz."
   [(ngModel)]="filterText">
 
 <table class="table mt-3">
@@ -8,6 +14,7 @@
       <th scope="col">İsim</th>
       <th scope="col">Soyisim</th>
       <th scope="col">Yaş</th>
+      <th scope="col">Tarih</th>
     </tr>
   </thead>
   <tbody>
@@ -16,7 +23,59 @@
       <td>{{user.name}}</td>
       <td>{{user.surName}}</td>
       <td>{{user.age}}</td>
+      <td>{{user.createdDate}}</td>
     </tr>
 
   </tbody>
 </table>
+  </div>
+</div>
+
+
+<!-- modal -->
+<div class="modal fade" id="addFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Test Form</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" (click)="resetForm()">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formAddForm" (ngSubmit)="add()">
+                    <div class="form-group">
+                        <label>İsim</label>
+                        <input type="text" class="form-control" formControlName="name" placeholder="İsminizi giriniz.">
+                        <div class="alert alert-danger"
+                            *ngIf="formAddForm.get('name').hasError('required') && formAddForm.get('name').pristine">İsim
+                            Alanı Boş Geçilemez</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Soyisim</label>
+                        <input type="text" class="form-control" formControlName="surName"
+                            placeholder="Soyadinizi giriniz.">
+                            <div class="alert alert-danger"
+                            *ngIf="formAddForm.get('surName').hasError('required') && formAddForm.get('surName').pristine" >Soyadı
+                            Alanı Boş Geçilemez!</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Yaş</label>
+                        <input type="number" class="form-control" formControlName="age" placeholder="Yasinizi Giriniz.">
+                        <div class="alert alert-danger"
+                            *ngIf="formAddForm.get('age').hasError('min') && formAddForm.get('age').hasError('max')" >Gecerli araliklarda yas giriniz!</div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="resetForm()">Kapat</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="formAddForm.invalid" >Ekle</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+
+  </div>
