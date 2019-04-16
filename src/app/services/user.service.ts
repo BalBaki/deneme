@@ -19,7 +19,7 @@ export class UserService {
 
   getUser(formName):Observable<User[]>{
 
-    return this.http.get<User[]>(this.path+"?formName="+formName  );
+    return this.http.get<User[]>(this.path+"?formName="+formName);
   }
 
   addUser(user:User):Observable<User>{
