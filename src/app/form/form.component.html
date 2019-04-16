@@ -20,14 +20,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users| filterForm:filterText ">
-      <th scope="row">{{user.id}}</th>
-       <td> <a routerLink="{{user.formName}}">{{user.formName}}</a></td>
-      <td>{{user.description}}</td>
-      <td>{{user.createdDate}}</td>
-      <td>{{user.fields.name}}</td>
-      <td>{{user.fields.surName}}</td>
-      <td>{{user.fields.age}}</td>
+    <tr *ngFor="let form of forms| filterForm:filterText ">
+      <th scope="row">{{form.id}}</th>
+       <td> <a routerLink="{{form.formName}}">{{form.formName}}</a></td>
+      <td>{{form.description}}</td>
+      <td>{{form.createdDate}}</td>
+      <td>{{form.fields.name}}</td>
+      <td>{{form.fields.surName}}</td>
+      <td>{{form.fields.age}}</td>
     </tr>
 
   </tbody>

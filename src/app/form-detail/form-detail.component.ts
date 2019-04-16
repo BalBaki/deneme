@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../form/user';
+import { Form } from '../form/form';
 import { UserService } from '../services/user.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -14,11 +14,11 @@ export class FormDetailComponent implements OnInit {
     private userService:UserService,
     private activatedRoute:ActivatedRoute
   ) { }
-  users: User[];
+  forms: Form[];
   ngOnInit() {
     this.activatedRoute.params.subscribe(params=>{
       this.userService.getUser(params["formName"]).subscribe(data=>{
-        this.users = data;
+        this.forms = data;
       });
     })
 

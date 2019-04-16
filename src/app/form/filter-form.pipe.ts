@@ -1,14 +1,14 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { User } from './user';
+import { Form } from './form';
 
 @Pipe({
   name: 'filterForm'
 })
 export class FilterFormPipe implements PipeTransform {
 
-  transform(value: User[], filterText?: string): User[] {
+  transform(value: Form[], filterText?: string): Form[] {
     filterText=filterText?filterText.toLocaleLowerCase():null;
-    return filterText?value.filter((f:User)=>f.formName.toLocaleLowerCase().indexOf(filterText)!==-1):value
+    return filterText?value.filter((f:Form)=>f.formName.toLocaleLowerCase().indexOf(filterText)!==-1):value
 
   }
 

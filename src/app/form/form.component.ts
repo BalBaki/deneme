@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './user';
-import { HttpClient } from '@angular/common/http'
+import { Form } from './form';
 import { UserService } from '../services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common'
-import { ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -24,9 +23,9 @@ export class FormComponent implements OnInit {
   
    }
   filterText = "";  
-  users: User[];
+  forms: Form[];
   formAddForm:FormGroup;
-  user: User = new User();
+  form: Form = new Form();
   myDate = new Date();
   formattedDate =this.datepipe.transform(this.myDate, 'yyyy-MM-dd');
 
@@ -49,7 +48,7 @@ export class FormComponent implements OnInit {
 
     this.createFormAddForm();
     this.userService.getUsers().subscribe(data=>{
-      this.users = data;
+      this.forms = data;
     });
   }
 
@@ -62,10 +61,10 @@ export class FormComponent implements OnInit {
       
      
    
-      this.user = Object.assign({},this.formAddForm.value);
+      this.form = Object.assign({},this.formAddForm.value);
     }
 
-    this.userService.addUser(this.user).subscribe(data=>{
+    this.userService.addUser(this.form).subscribe(data=>{
 
       this.ngOnInit();
     });

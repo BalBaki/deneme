@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { User } from '../form/user';
+import { Form } from '../form/form';
 import { Observable } from 'rxjs';
 
 
@@ -13,23 +13,23 @@ export class UserService {
   path = "http://localhost:3000/users";
 
 
-  getUsers():Observable<User[]>{
-    return this.http.get<User[]>(this.path);
+  getUsers():Observable<Form[]>{
+    return this.http.get<Form[]>(this.path);
   }
 
-  getUser(formName):Observable<User[]>{
+  getUser(formName):Observable<Form[]>{
 
-    return this.http.get<User[]>(this.path+"?formName="+formName);
+    return this.http.get<Form[]>(this.path+"?formName="+formName);
   }
 
-  addUser(user:User):Observable<User>{
+  addUser(form:Form):Observable<Form>{
     const httpOptions= {
       headers:new HttpHeaders({
         'Content-Type':'application/json',
         'Authorization':'Token'
       })
     }
-    return this.http.post<User>(this.path,user,httpOptions);
+    return this.http.post<Form>(this.path,form,httpOptions);
   }
 
 }

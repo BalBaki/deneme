@@ -1,23 +1,23 @@
-<form *ngFor="let user of users">
+<form *ngFor="let form of forms">
     <div class="form-group">
       <label >Form Name</label>
-      <input type="text" class="form-control" value="{{user.formName}}">
+      <input type="text" class="form-control" value="{{form.formName}}">
     </div>
     <div class="form-group">
         <label >Description</label>
-        <input  type="text" class="form-control" value="{{user.description}}">
+        <input  type="text" class="form-control" value="{{form.description}}">
       </div>
       <div class="form-group">
           <label >İsim</label>
-          <input  type="text" class="form-control" value="{{user.fields.name}}">
+          <input  type="text" class="form-control" value="{{form.fields.name}}">
         </div>
         <div class="form-group">
       <label >Soyisim	</label>
-      <input  type="text" class="form-control" value="{{user.fields.surName}}" >
+      <input  type="text" class="form-control" value="{{form.fields.surName}}" >
     </div>
     <div class="form-group">
         <label >Yaş</label>
-        <input  type="number" class="form-control" value="{{user.fields.age}}">
+        <input  type="number" class="form-control" value="{{form.fields.age}}">
       </div>
     
     <button type="submit" class="btn btn-primary">Submit</button>
