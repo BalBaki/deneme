@@ -26,7 +26,7 @@
       <td>{{user.description}}</td>
       <td>{{user.createdDate}}</td>
       <td>{{user.fields.name}}</td>
-       <td>{{user.fields.surName}}</td>
+      <td>{{user.fields.surName}}</td>
       <td>{{user.fields.age}}</td>
     </tr>
 
@@ -64,13 +64,29 @@
                             *ngIf="formAddForm.get('description').hasError('required') && formAddForm.get('description').pristine" >Açıklama
                             Alanı Boş Geçilemez!</div>
                     </div>
-                     <!-- <div class="form-group">
-                        <label>Yaş</label>
-                        <input type="number" class="form-control" formControlName="fields" placeholder="Yasinizi Giriniz.">
+                     
+                    <div formGroupName="fields">
+                      <div class="form-group">
+                          <label>İsim</label>
+                        <input type="text" class="form-control" formControlName="name" placeholder="isim gir.">
                         <div class="alert alert-danger"
-                            *ngIf="formAddForm.get('age').hasError('fields') && formAddForm.get('fields').hasError('max')" >Gecerli araliklarda yas giriniz!</div>
-                    </div>  -->
-                    
+                        *ngIf="formAddForm.get('description').hasError('required') && formAddForm.get('description').pristine" >İsim
+                        Alanı Boş Geçilemez!</div>
+                      </div>
+                      <div class="form-group">
+                          <label>Soyisim</label>
+                        <input type="text" class="form-control" formControlName="surName" placeholder="isim gir.">
+                        <div class="alert alert-danger"
+                        *ngIf="formAddForm.get('description').hasError('required') && formAddForm.get('description').pristine" >İsim
+                        Alanı Boş Geçilemez!</div>
+                      </div>
+                      <div class="form-group">
+                        <label>Yaş</label>
+                        <input type="number" class="form-control" formControlName="age" placeholder="Yasinizi Giriniz.">
+                        
+                    </div> 
+                    </div>
+                 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="resetForm()">Kapat</button>
                         <button type="submit" class="btn btn-primary" [disabled]="formAddForm.invalid" >Ekle</button>

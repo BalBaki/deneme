@@ -33,11 +33,12 @@ export class FormComponent implements OnInit {
       formName:["",Validators.required],
       description:["",Validators.required],
       createdDate:[""+this.formattedDate,] ,
-      fields:this.formBuilder.array([
-        {name:["",Validators.required]},
-        {surName:["",Validators.required]},
-        {age:["",Validators.compose([Validators.min(1),Validators.max(120)])]}
-      ])
+      fields:this.formBuilder.group({
+        name:["",Validators.required],
+        surName:["",Validators.required],
+        age:["",Validators.compose([Validators.min(1),Validators.max(120)])]
+      }
+      )
     });
   }
 
